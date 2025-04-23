@@ -1,6 +1,7 @@
 
 <?php
 include_once("connection.php");
+include_once("function.php");
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -31,3 +32,9 @@ $user = $result->fetch_assoc();
     </div>
 </body>
 </html>
+
+
+<?php if (isAdmin()): ?>
+    | <a href="manage_users.php">Manage Users</a>
+<?php endif; ?>
+
